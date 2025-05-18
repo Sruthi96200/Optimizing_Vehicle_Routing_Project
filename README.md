@@ -1,14 +1,60 @@
+📌 Project Title
 Optimizing Vehicle Routing with Time Windows Using Julia
-This project focuses on solving the classical Vehicle Routing Problem with Time Windows (VRPTW), where a homogeneous fleet of vehicles must service a set of customers within specific time windows and capacity limits. Each route must begin and end at a central depot, and the objective is to minimize the total number of vehicles utilized, while ensuring that every customer is visited exactly once and within their designated time window.
 
-To address this optimization challenge, the project implements two advanced methodologies:
+📖 Overview
+This project addresses the Vehicle Routing Problem with Time Windows (VRPTW) — a classic logistics optimization challenge. A homogeneous fleet of vehicles must deliver to a set of customers, adhering to strict delivery time windows and vehicle capacity constraints. Each route starts and ends at a central depot. The primary objective is to minimize the total number of vehicles utilized, ensuring that:
 
-1. Mixed-Integer Linear Programming (MILP):
-A comprehensive MILP model is formulated by defining binary variables to represent vehicle routing decisions and continuous variables for service start times. The formulation incorporates essential constraints related to vehicle capacity, time windows, and route connectivity. The model is implemented using the Julia JuMP optimization package, which provides a flexible and efficient framework for modeling and solving large-scale mathematical programs.
+Each customer is visited exactly once
 
-2. Column Generation Approach:
-As an alternative to MILP, this approach reformulates the problem using a potentially exponential set of feasible routes. Starting with a set of trivial routes—each serving a single customer—the method iteratively solves a restricted master problem and a pricing subproblem to identify and add new routes that improve the solution. This decomposition-based method significantly enhances scalability, especially for larger problem instances.
+Time window and capacity constraints are fully respected
 
-The dataset used in this project includes customer coordinates and demand values, with the depot specified as the final entry. Travel times are computed using Euclidean distance, ensuring realistic routing costs. The implementation notebook includes both optimization strategies, performance comparisons, and visualizations of the resulting vehicle routes.
+⚙️ Methodology
+1. Mixed-Integer Linear Programming (MILP)
+A detailed MILP formulation is developed using the JuMP package in Julia. The model includes:
 
-This project showcases expertise in combinatorial optimization, integer programming, and decomposition techniques, and demonstrates practical skills in leveraging Julia for solving real-world logistics and transportation problems. It offers a robust foundation for applications in supply chain optimization and intelligent transportation systems.
+Binary decision variables to represent whether a vehicle travels from one node to another
+
+Continuous variables to track service start times
+
+Constraints for time windows, route flow, and capacity limitations
+
+This model provides an exact solution to the VRPTW using a mathematical programming approach.
+
+2. Column Generation Technique
+To scale the problem efficiently, the project also implements a Column Generation approach:
+
+Begins with a set of trivial routes (each serving a single customer)
+
+Iteratively solves a restricted master problem
+
+Uses a pricing subproblem to generate cost-reducing new routes
+
+This decomposition method is especially effective for large-scale instances with many customers.
+
+📊 Dataset & Assumptions
+Customer coordinates and demand values are provided
+
+Depot is defined as the final entry in the dataset
+
+Travel times are computed using Euclidean distances
+
+All inputs are assumed to be non-negative integers
+
+💡 Key Highlights
+Implemented in Julia using the JuMP optimization framework
+
+Demonstrates both exact and scalable heuristic approaches
+
+Includes code, visualizations, and performance comparisons
+
+Applicable to real-world transportation, distribution, and supply chain scenarios
+
+🔍 Skills Demonstrated
+Combinatorial Optimization
+
+Mathematical Modeling (MILP)
+
+Column Generation & Decomposition Techniques
+
+Algorithm Design in Julia
+
